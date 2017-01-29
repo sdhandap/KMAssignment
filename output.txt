@@ -1,0 +1,11 @@
+//(Centroid, Count)
+
+Centroids based on batch data-
+(3.0,5.0)
+(8.0,5.0)
+(17.0,4.0)
+
+Centroids after new incoming data-
+(3.0,5.0)
+(8.333333333333334,6.0)
+(19.166666666666668,6.0)
