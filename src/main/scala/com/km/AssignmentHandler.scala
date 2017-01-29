@@ -14,8 +14,12 @@ object AssignmentHandler {
     val rdd1 = sc.parallelize(l1, 4)
     // Assign Random centroids to initialize
     val randomCentroids = Array(1.0, 2.0, 8.0)
+    rdd1.cache()
     // Generate KMeans Model
     val m: Model = new KMAssignment().generateModel(rdd1, randomCentroids)
+
+    println("Centroids based on batch data-")
+    m.centroidInfo.foreach(println)
 
     /* In case of new list of elements, find its closest centroid and increment its total and count.
      * Update the model at the end.
@@ -42,6 +46,9 @@ object AssignmentHandler {
 
     // Update the model with updated centroind and count
     m.centroidInfo = updatedStats
+
+    println("Centroids after new incoming data- ")
+    m.centroidInfo.foreach(println)
 
   }
 }

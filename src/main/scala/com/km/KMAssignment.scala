@@ -26,8 +26,8 @@ class KMAssignment extends Serializable {
       val centroidWithTotalAvg: Array[(Double, Double)] = KMAssignment.getCentroidTotalAndCount(inputRdd, currentCentroids).values.map { a => (a._1 / a._2, a._2) }.collect
       newActiveCentroids = centroidWithTotalAvg.map(a => a._1)
       currentCentroids.unpersist()
+      println(s"Iteration: $i")
       centroidWithTotalAvg.foreach(println)
-      newActiveCentroids.foreach(println)
       if (numOfIterations == i) {
         model.clusterSize = clusterSize
         model.centroidInfo = centroidWithTotalAvg.toMap
