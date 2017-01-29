@@ -10,8 +10,8 @@ object AssignmentHandler {
 
     val sc = SparkSingletons.sc
     // Parallelize list of Integers
-    val l1 = List(7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 14, 16, 18, 20)
-    val rdd1 = sc.parallelize(l1, 4)
+    val batchData = List(7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 14, 16, 18, 20)
+    val rdd1 = sc.parallelize(batchData, 4)
     // Assign Random centroids to initialize
     val randomCentroids = Array(1.0, 2.0, 8.0)
     rdd1.cache()
