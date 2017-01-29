@@ -14,7 +14,6 @@ object AssignmentHandler {
     val rdd1 = sc.parallelize(batchData, 4)
     // Assign Random centroids to initialize
     val randomCentroids = Array(1.0, 2.0, 8.0)
-    rdd1.cache()
     // Generate KMeans Model
     val m: Model = new KMAssignment().generateModel(rdd1, randomCentroids)
 

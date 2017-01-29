@@ -20,6 +20,7 @@ class KMAssignment extends Serializable {
     val model = new Model()
     val clusterSize = inputCentroids.length
     var newActiveCentroids = inputCentroids
+    inputRdd.cache()
 
     for (i <- 1 to numOfIterations) {
       val currentCentroids: Broadcast[Array[Double]] = SparkSingletons.sc.broadcast(newActiveCentroids)
